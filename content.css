@@ -1,0 +1,49 @@
+/*
+ * Canvas reserves space for its sidebars with margins on the layout wrappers,
+ * not with the sidebars' own widths, so hiding the elements alone leaves a gap:
+ *   - global nav (#header, position: fixed) -> .ic-Layout-wrapper margin-left: 54px / 84px
+ *   - course menu (#left-side, position: absolute) -> .ic-Layout-columns margin-left: 192px
+ * Each rule below hides a sidebar and removes the margin that goes with it.
+ * The classes are set on <html> by content.js.
+ */
+
+/* ---- Global navigation ---- */
+html.cst-hide-global-nav #header.ic-app-header {
+  display: none !important;
+}
+html.cst-hide-global-nav .ic-Layout-wrapper,
+html.cst-hide-global-nav .tray-with-space-for-global-nav {
+  margin-left: 0 !important;
+}
+
+/* ---- Course menu ---- */
+html.cst-hide-course-menu #left-side,
+html.cst-hide-course-menu .ic-app-course-menu {
+  display: none !important;
+}
+html.cst-hide-course-menu .ic-Layout-columns {
+  margin-left: 0 !important;
+}
+html.cst-hide-course-menu .ic-Layout-columns .ic-Layout-watermark {
+  left: 0 !important;
+}
+/* With the menu open, Canvas only puts the right-hand sidebar beside the content
+   from 1140px; with it closed, from 992px. Match the closed layout. */
+@media only screen and (min-width: 992px) {
+  html.cst-hide-course-menu body:not(.ic-no-flex-layout):not(.embedded) .ic-app-main-content {
+    display: flex !important;
+  }
+  html.cst-hide-course-menu body:not(.ic-no-flex-layout):not(.embedded) .ic-Layout-contentWrapper {
+    flex: 1 !important;
+    min-width: 1px !important;
+  }
+  html.cst-hide-course-menu .ic-app-main-content__secondary {
+    width: 288px !important;
+    padding-left: 24px !important;
+  }
+}
+
+/* ---- Full width (removes Canvas's 1366px cap) ---- */
+html.cst-full-width .ic-Layout-wrapper {
+  max-width: none !important;
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Canvas Sidebar Toggle</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <h1>Canvas sidebars</h1>
+
+  <label class="row">
+    <span>
+      <span class="name">Global navigation</span>
+      <span class="hint">Alt+Shift+G</span>
+    </span>
+    <input type="checkbox" class="switch" data-key="hideGlobalNav" data-invert>
+  </label>
+
+  <label class="row">
+    <span>
+      <span class="name">Course menu</span>
+      <span class="hint">Alt+Shift+C</span>
+    </span>
+    <input type="checkbox" class="switch" data-key="hideCourseMenu" data-invert>
+  </label>
+
+  <label class="row">
+    <span>
+      <span class="name">Full-width content</span>
+      <span class="hint">Alt+Shift+F</span>
+    </span>
+    <input type="checkbox" class="switch" data-key="fullWidth">
+  </label>
+
+  <p class="footer"><a href="#" id="shortcuts">Change shortcuts</a></p>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
