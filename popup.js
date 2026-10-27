@@ -1,4 +1,4 @@
-// Switches read "shown" for the sidebars (data-invert) and "on" for full width.
+// Switches read "shown" for the sidebars and buttons (data-invert) and "on" for full width.
 const inputs = document.querySelectorAll("input[data-key]");
 
 chrome.storage.sync.get(CST_DEFAULTS, (settings) => {
@@ -14,6 +14,17 @@ for (const input of inputs) {
     chrome.storage.sync.set({ [input.dataset.key]: value });
   });
 }
+
+// Show the shortcuts actually assigned: if another extension already owns a key,
+// the browser leaves ours unset rather than reporting a conflict.
+chrome.commands.getAll((commands) => {
+  for (const command of commands) {
+    const hint = document.querySelector(`[data-command="${command.name}"]`);
+    if (!hint) continue;
+    hint.textContent = command.shortcut || "No shortcut set";
+    hint.classList.toggle("unset", !command.shortcut);
+  }
+});
 
 document.getElementById("shortcuts").addEventListener("click", (e) => {
   e.preventDefault();

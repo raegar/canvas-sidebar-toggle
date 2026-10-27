@@ -11,10 +11,19 @@ Chrome/Edge extension that hides or shows Canvas's global navigation and course 
 
 ## Use
 
-- Popup switches: Global navigation, Course menu, Full-width content.
-- Shortcuts: `Alt+Shift+G` (global nav), `Alt+Shift+C` (course menu), `Alt+Shift+F` (full width).
+- On-page buttons: a small toolbar at the bottom of the global nav (or on the left edge
+  when the nav is hidden). A slashed icon means that sidebar is hidden; click to toggle.
+  The toolbar can be turned off in the popup.
+- Popup switches: Global navigation, Course menu, Full-width content, On-page buttons.
+- Shortcuts: `Alt+Shift+G` (global nav), `Alt+Shift+L` (course menu), `Alt+Shift+W` (full width).
   Change them at `chrome://extensions/shortcuts` / `edge://extensions/shortcuts`.
 - Settings are remembered and apply to all open Canvas tabs immediately.
+
+### A shortcut doesn't work
+
+If another extension already uses a key, the browser silently leaves this extension's
+shortcut unassigned. The popup shows the keys actually assigned, in red as
+"No shortcut set" when one is missing; set it from **Change shortcuts** in the popup.
 
 ## Other Canvas sites
 

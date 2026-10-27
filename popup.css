@@ -45,6 +45,7 @@ h1 {
 
 .name { display: block; }
 .hint { display: block; font-size: 11px; color: var(--muted); }
+.hint.unset { color: #c23c0d; }
 
 .switch {
   appearance: none;

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Canvas Sidebar Toggle",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Hide or show Canvas's global navigation and course menu, letting the main content use the freed space.",
   "permissions": ["storage"],
   "host_permissions": [
@@ -18,7 +18,7 @@
         "https://*.instructure.com/*"
       ],
       "css": ["content.css"],
-      "js": ["content.js"],
+      "js": ["shared.js", "content.js"],
       "run_at": "document_start",
       "all_frames": false
     }
@@ -45,11 +45,11 @@
       "description": "Hide/show the global navigation"
     },
     "toggle-course-menu": {
-      "suggested_key": { "default": "Alt+Shift+C" },
+      "suggested_key": { "default": "Alt+Shift+L" },
       "description": "Hide/show the course menu"
     },
     "toggle-full-width": {
-      "suggested_key": { "default": "Alt+Shift+F" },
+      "suggested_key": { "default": "Alt+Shift+W" },
       "description": "Toggle full-width content"
     }
   }

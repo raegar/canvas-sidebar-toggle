@@ -47,3 +47,43 @@ html.cst-hide-course-menu .ic-Layout-columns .ic-Layout-watermark {
 html.cst-full-width .ic-Layout-wrapper {
   max-width: none !important;
 }
+
+/* ---- On-page toggle buttons (styled inside their shadow root by content.js) ---- */
+/* Sits in the global nav, just above its collapse arrow (bottom 44px); laid out in a
+   row when the nav is expanded (84px wide), a column when collapsed (54px). With the
+   nav hidden it becomes a tab on the left edge. The --cst-* properties are read by
+   the toolbar's shadow-root styles. */
+#cst-page-buttons {
+  position: fixed;
+  z-index: 1000;
+  bottom: 50px;
+  left: 6px;
+  --cst-direction: row;
+  --cst-radius: 8px;
+  --cst-shadow: none;
+}
+body:not(.primary-nav-expanded) #cst-page-buttons {
+  left: 8px;
+  --cst-direction: column;
+}
+html.cst-hide-global-nav #cst-page-buttons {
+  left: 0 !important;
+  bottom: 12px !important;
+  --cst-direction: row !important;
+  --cst-radius: 0 8px 8px 0 !important;
+  --cst-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+/* Canvas hides the sidebars itself below 768px, so the buttons do nothing there. */
+@media not all and (min-width: 768px) {
+  #cst-page-buttons {
+    display: none !important;
+  }
+}
+html.cst-hide-page-buttons #cst-page-buttons {
+  display: none !important;
+}
+@media print {
+  #cst-page-buttons {
+    display: none !important;
+  }
+}
